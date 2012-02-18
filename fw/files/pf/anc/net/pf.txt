@@ -1,0 +1,19 @@
+include "/etc/pf/global.txt"
+
+### pull in ob_tcp, ob_udp
+pass log inet proto tcp from <nat_for> to any port $ob_tcp
+pass log inet proto udp from <nat_for> to any port $ob_udp
+pass log inet6 proto tcp from <nat_for> to any port $ob_tcp
+pass log inet6 proto udp from <nat_for> to any port $ob_udp
+
+###Other Ports
+#Define what ports are for in /etc/pf/anc/net/ports.txt !
+
+other_tcp="{110, 161, 210, 444, 873, 1494, 2195, 2210, 2598, 5060, 5190, 5223, 5666, 7090, 25565}"
+
+other_udp="{ 3478><3497, 16384><16402 }"
+
+pass log inet proto tcp from <nat_for> to any port $other_tcp
+pass log inet proto udp from <nat_for> to any port $other_udp
+pass log inet6 proto tcp from <nat_for> to any port $other_tcp
+pass log inet6 proto udp from <nat_for> to any port $other_udp

@@ -1,0 +1,5 @@
+#Fill in your information
+inet <address> <netmask>
+description OUTSIDE
+#Add an alias for each address (or claim the whole range above)
+inet alias <address> <netmask>

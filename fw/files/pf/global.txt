@@ -1,0 +1,16 @@
+### internal / external interfaces
+ext="<external interface>"
+int="<internal interface>"
+
+### global nat address
+nat_to="<ip>"
+
+### defaults for (most) hosts
+# outbound ftp, ssh, tcp dns, http, https
+ob_tcp="{ 21, 22, 53, 80, 443 }"
+# // outbound udp dns, ntp
+ob_udp="{ 53, 123 }"
+
+### server access (protected by network acls)
+# ssh, remote desktop
+srv_admin_tcp="{ 22, 3389 }"

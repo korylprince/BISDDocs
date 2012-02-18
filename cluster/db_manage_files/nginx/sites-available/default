@@ -1,0 +1,27 @@
+# Server listens on localhost only
+
+server {
+	listen 127.0.0.1:80;
+	server_name localhost;
+
+	root /var/www;
+	index index.html index.htm index.php;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+		# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+		location ~ \.php {
+				fastcgi_pass 127.0.0.1:9000;
+				fastcgi_index index.php;
+				include fastcgi_params;
+
+		#Needed to get file paths working correctly
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		fastcgi_param PATH_INFO $fastcgi_path_info;
+		}
+
+	#Fix upload limit
+	client_max_body_size 10000M;
+}

@@ -1,0 +1,70 @@
+# include global macros/ variables
+include "/etc/pf/global.txt"
+
+## WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING ##
+##                                                                 ##
+## THIS RULESET IS SET TO PASS ALL TCP/UDP BY DEFAULT. CHANGE THE  ##
+## in_* and out_* MACRO DEFINITIONS TO MAKE THIS RESTRICTIVE       ##
+##                                                                 ##
+## WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING ##
+
+# match here for binat
+match log on $ext from <internal IP> to any binat-to <external IP>
+
+# this var limits to 1000 connections per port (rule) after
+# the pfctl parses them and rate limits inbound connections to 
+# 15 new connections in a 5 second period per host - it should
+# protect from most common dos attacks
+RATE_LIMIT = "keep state (max 1000, max-src-conn-rate 100/5)"
+
+# this table holds addresses/ ranges that are allowed ssh
+# access to the host
+table <TEMPLATE-admin> persist file "/etc/pf/anc/TEMPLATE/tab/admin.txt"
+
+# this table holds addresses/ ranges that are blacklisted
+# and therefore not allowed any contact with the host
+table <TEMPLATE-blacklist> persist file "/etc/pf/anc/TEMPLATE/tab/blacklist.txt"
+
+# this table holds addresses/ ranges that are whitelisted
+# and therefore allowed all contact with the host
+table <TEMPLATE-whitelist> persist file "/etc/pf/anc/TEMPLATE/tab/whitelist.txt"
+
+# specify passed inbound ports
+in_tcp4 = "{ 1:65535 }"
+in_udp4 = "{ 1:65535 }"
+in_tcp6 = "{ 1:65535 }"
+in_udp6 = "{ 1:65535 }"
+
+# specify passed outbound ports
+out_tcp4 = "{ 1:65535 }"
+out_udp4 = "{ 1:65535 }"
+out_tcp6 = "{ 1:65535 }"
+out_udp6 = "{ 1:65535 }"
+
+# blacklist
+block quick inet from <TEMPLATE-blacklist> to <TEMPLATE>
+block quick inet from <TEMPLATE> to <TEMPLATE-blacklist>
+block quick inet6 from <TEMPLATE-blacklist> to <TEMPLATE>
+block quick inet6 from <TEMPLATE> to <TEMPLATE-blacklist>
+
+# whitelist
+pass quick inet from <TEMPLATE-whitelist> to <TEMPLATE>
+pass quick inet from <TEMPLATE> to <TEMPLATE-whitelist>
+pass quick inet6 from <TEMPLATE-whitelist> to <TEMPLATE>
+pass quick inet6 from <TEMPLATE> to <TEMPLATE-whitelist>
+
+# allow $srv_admin_tcp (ssh, rdp) in from certain hosts
+pass quick log inet proto tcp from {<admin>,<TEMPLATE-admin>} to <TEMPLATE> port $srv_admin_tcp
+pass quick log inet6 proto tcp from {<admin>,<TEMPLATE-admin>} to <TEMPLATE> port $srv_admin_tcp
+
+# inbound connection rules
+pass quick log inet proto tcp from any to <TEMPLATE> port $in_tcp4 $RATE_LIMIT
+pass quick log inet proto udp from any to <TEMPLATE> port $in_udp4 $RATE_LIMIT
+pass quick log inet6 proto tcp from any to <TEMPLATE> port $in_tcp6 $RATE_LIMIT
+pass quick log inet6 proto udp from any to <TEMPLATE> port $in_udp6 $RATE_LIMIT
+
+# outbound connection rules
+pass quick log inet proto tcp from <TEMPLATE> to ! <core> port $out_tcp4 $RATE_LIMIT
+pass quick log inet proto udp from <TEMPLATE> to ! <core> port $out_udp4 $RATE_LIMIT
+pass quick log inet6 proto tcp from <TEMPLATE> to ! <core> port $out_tcp6 $RATE_LIMIT
+pass quick log inet6 proto udp from <TEMPLATE> to ! <core> port $out_udp6 $RATE_LIMIT

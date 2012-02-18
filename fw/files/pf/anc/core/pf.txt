@@ -1,0 +1,18 @@
+include "/etc/pf/global.txt"
+
+# allow anything out from <core>
+pass quick log inet from <core> to any
+pass quick log inet6 from <core> to any
+
+# allow internal access to any port
+pass quick log inet from any to <core>
+pass quick log inet6 from any to <core>
+
+# pass out for external IPs
+pass out quick log inet from $ext to any
+pass out quick log inet6 from $ext to any
+
+# ssh
+pass quick log inet proto tcp from <admin> to <core> port 22
+pass quick log inet6 proto tcp from <admin> to <core> port 22
+

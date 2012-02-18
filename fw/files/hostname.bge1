@@ -1,0 +1,6 @@
+#Fill in your information
+inet <address> <netmask>
+description INSIDE
+#add routes
+!route add <cidr range> <gateway>
+

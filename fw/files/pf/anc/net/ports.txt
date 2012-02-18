@@ -1,0 +1,20 @@
+### TCP ###
+110 # POP
+161 # SNMP
+210 # Z39.50 - Library Bibliography
+444 # SNPP
+873 # rsync
+1494 # Citrix
+2195 # Apple Push
+2210 # Z39.50 - Library Bibliography
+2598 # Citrix
+5060 # SIP
+5190 # Chat - aim/ichat/etc
+5223 # Various Apple Services (Facetime, secure ichat, etc...)
+5666 # Nagios
+7090 # Library Server
+
+### UDP ###
+3478><3497 # NAT STUN - (Facetime, etc...)
+16384><16402 # Apple streaming (Facetime, etc...)
+33434><34500 # Trace Route - Included in main pf.conf

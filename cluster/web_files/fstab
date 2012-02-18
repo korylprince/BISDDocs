@@ -1,0 +1,5 @@
+##########  WARNING  ##########
+THIS IS NOT THE ENTIRE FSTAB!!
+###############################
+
+tmpfs   /var/cache/eaccelerator tmpfs   defaults        0       0

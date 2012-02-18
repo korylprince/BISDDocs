@@ -1,0 +1,6 @@
+##########  WARNING  ##########
+THIS IS NOT THE ENTIRE FSTAB!!
+###############################
+
+#NFS to ubuntu-db1
+ubuntu-db1.example.com:<datadir> <datadir> nfs rsize=8192,wsize=8192,timeo=14,intr

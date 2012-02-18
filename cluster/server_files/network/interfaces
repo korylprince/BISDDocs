@@ -1,0 +1,19 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+
+#Set up Link aggregation
+auto bond0
+iface bond0 inet static
+#replace with your network config
+address 192.168.100.80
+gateway 192.168.100.100
+netmask 255.255.255.0
+
+#replace with your interfaces
+bond-slaves eth2 eth3
+bond_mode 1
+bond_miimon 100

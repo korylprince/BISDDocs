@@ -1,0 +1,33 @@
+server {
+	listen 80;
+	server_name server.example.com;
+
+	root /var/www;
+	index index.html index.htm index.php;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+		#disable git access
+		location ~ /\.git {
+				deny all;
+		}
+
+		# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
+		location ~ \.php {
+				fastcgi_pass 127.0.0.1:9000;
+				fastcgi_index index.php;
+				include fastcgi_params;
+
+		#Needed to get file paths working correctly
+		fastcgi_split_path_info ^(.+\.php)(/.+)$;
+		fastcgi_param PATH_INFO $fastcgi_path_info;		
+
+		#Needed for extended moodle functions
+		fastcgi_read_timeout 1200;
+		}
+
+	#Fix upload limit
+	client_max_body_size 10000M;
+}
