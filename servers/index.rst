@@ -21,7 +21,7 @@ Servers
 Undocumented Servers
 ^^^^^^^^^^^^^^^^^^^^
 
-These servers have no documentation either because they are old and outdated or because they a testing servers:
+These servers have no documentation either because they are old and outdated or because they are testing servers:
 
 * video.bullardisd.net
 * mail2.bullardisd.net

@@ -5,7 +5,7 @@
 Moodle
 ======
 
-Installs Moodle in a clustered environment. With this setup multiple moodle installations use the same Web Codebase at :file:`/var/moodlewww`.
+Installs Moodle in a clustered environment. With this setup multiple moodle installations use the same Web Codebase at :file:`/var/moodlewww`. This allows for quicker upgrades, but does not allow moodles to be upgraded separately. Thus it is recommended that testing moodles are installed with a separate codebase.
 
 In this setup the moodle databases lie on an external server - ubuntu-db1.example.com.
 
@@ -45,9 +45,25 @@ See :doc:`web` for setting up web server.
 
 See :doc:`db` for setting up database server.
 
+*Note: database use utf8_unicode_collation.*::
+
+    mysql> ALTER DATABASE <datbase_name> DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci
+
+*and must use innodb (should be default.)*
+
 See :doc:`data` for setting up shared moodledata directory.
 
 See :doc:`lb` for load balancing more than one moodle server.
+
+Updating
+========
+
+To update moodle to the newest version, simply run::
+
+    $ sudo git checkout .
+    $ sudo git pull origin MOODLE_XX_STABLE
+
+Then go to the web interface for moodle (on each moodle) and run the updates. (We are testing automatic updating from the terminal currently.)
 
 References
 ==========
