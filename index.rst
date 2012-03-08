@@ -7,6 +7,7 @@ This is the documentation of all of Bullard ISD's Open Source setups. This is a 
     :maxdepth: 1
 
     fw/fw.rst
+    backup/backup.rst
     cluster/index.rst
     servers/index.rst
 

@@ -1,0 +1,4 @@
+##########  WARNING  ##########
+THIS IS NOT THE ENTIRE FSTAB!!
+###############################
+//share/to/mount /full/path/to/mount/location smbfs username=<username>,password=<password>,noauto,user 0 0

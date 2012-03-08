@@ -68,4 +68,4 @@ Then go to the web interface for moodle (on each moodle) and run the updates. (W
 References
 ==========
 
-`Browse configuration files <lb_files/>`_
+`Browse configuration files <moodle_files/>`_
