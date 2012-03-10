@@ -69,6 +69,26 @@ To restart the networking (in case something gets unplugged) run in the followin
 	$ sudo pfctl -f /etc/pf.conf
 	$ sudo sh /etc/netstart
 
+To view loaded rules (to use in conjunction with Monitoring below) run::
+
+    $ sudo pfctl -g -s rules
+
+And to view the rules in an anchor run::
+
+    $ sudo pfctl -a "<anchor name>" -g -s rules
+
+where <anchor name> would be ubuntu-lb1 for example.
+
+To check if an address is in a table, first list tables with::
+
+    $ sudo pfctl -s Tables
+
+Then list the addresses in a table with::
+
+    $ sudo pfctl -t <table name> -T show
+
+Where <table name> is a table from the previous command.
+
 **How the Template Works**
 
 Anchors are used for efficiency. Only packets that apply to an anchor go into it, so not all rules are read for each packet. Normal traffic is handled with the net anchor. All open outbound ports for normal traffic are listed here.
