@@ -58,9 +58,13 @@ Next create the directory structure::
     $ mkdir logs
 
 *Note that bisdadmin2 and bisdadmin2a are directories used for mounting smb shares. They may not be needed in your situation (and definitely not with those names.)*
+
 Set up Script Dependencies
-    Install needed packages
-        $ sudo apt-get install mutt ssmpt
+==========================
+
+Install needed packages::
+
+    $ sudo apt-get install mutt ssmpt
 
 **Email Reports:**
 
