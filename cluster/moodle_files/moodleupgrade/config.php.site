@@ -1,0 +1,33 @@
+<?php  // Moodle configuration file
+
+unset($CFG);
+global $CFG;
+$CFG = new stdClass();
+
+$CFG->dbtype    = 'mysqli';
+$CFG->dblibrary = 'native';
+$CFG->dbhost    = 'ubuntu-db1';
+$CFG->dbname    = 'moodle_site';
+$CFG->dbuser    = 'root';
+$CFG->dbpass    = 'password';
+$CFG->prefix    = '';
+$CFG->dboptions = array (
+  'dbpersist' => 0,
+  'dbsocket' => 0,
+);
+
+//Allow Proxying
+$CFG->sslproxy=true;
+$CFG->wwwroot   = 'https://moodle.example.com/site';
+$CFG->dataroot  = '/var/moodledata/site';
+$CFG->admin     = 'admin';
+
+$CFG->directorypermissions = 0777;
+
+#ADD YOUR OWN SALT!
+$CFG->passwordsaltmain = 'salt';
+
+require_once(dirname(__FILE__) . '/lib/setup.php');
+
+// There is no php closing tag in this file,
+// it is intentional because it prevents trailing whitespace problems!
