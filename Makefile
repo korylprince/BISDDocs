@@ -51,6 +51,7 @@ html:
 	cp -R cluster/web_files $(BUILDDIR)/html/cluster/web_files/
 	cp -R cluster/lb_files $(BUILDDIR)/html/cluster/lb_files/
 	cp -R cluster/moodle_files $(BUILDDIR)/html/cluster/moodle_files/
+	cp  cluster/cluster.svg $(BUILDDIR)/html/cluster/cluster.svg
 	cp -R backup/files $(BUILDDIR)/html/backup/files/
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 

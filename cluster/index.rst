@@ -24,3 +24,12 @@ Software Setup
 
 	moodle.rst
 
+Diagram
+^^^^^^^
+
+.. image:: cluster.svg
+    :width: 800 px
+    :alt: Cluster Diagram
+    :align: center
+
+`Click here for full image <cluster.svg>`_
