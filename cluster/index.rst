@@ -3,6 +3,8 @@ Web Cluster Howto
 
 Web services have been abstracted out to their separate components. This way they can be split among different servers.
 
+In reality, this just means that we run our :doc:`Web <web>` servers on different servers than :doc:`MySQL <db>` runs on. We also throw in a :doc:`Load Balancer <lb>` to allow multiple :doc:`Web <web>` servers to run the same service, and to take on the HTTPS strain.
+
 Cluster Components
 ^^^^^^^^^^^^^^^^^^
 
@@ -42,3 +44,5 @@ Diagram
     :align: center
 
 `Click here for full image <cluster.svg>`_
+
+In the above diagram :doc:`ns <../servers/ns>` is our internal DNS server, and dns.he.net is our external DNS server.

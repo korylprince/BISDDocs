@@ -49,7 +49,7 @@ It is not recommended that you run these commands while there are many users usi
 Backup
 ======
 
-The simplest way to backup your databases (the way we do it here at Bullard ISD) is to use the :file:`mysqldump` command. The command::
+The simplest way to backup your databases is to use the :file:`mysqldump` command. The command::
 
     $ mysqldump -u<user> -p<password> <database> >/path/to/backup
 
@@ -61,6 +61,22 @@ A simple script with the above command for each database could be run daily with
 
 *Note: Use* :file:`crontab -e` *to edit a user's cron tasks.*
 
-Our backup system backs up the filesystem, so each day's backups are backed up that way. See Brackup for backing up the MySQL dumps.
+Script
+^^^^^^
+
+We use a little script, `sqlbackup.sh <db_files/sqlbackup.sh>`_ , to run our SQL backups. This is a simple way to back up multiple databases, compress them, and delete old backups (all of this is easily configurable.)
+
+Just copy this script to :file:`/home/administrator/backup/`, edit the variables, and run it with::
+
+    $ /home/administrator/backup/sqlbackup.sh <note>
+
+<note> is an optional word that will be included in the filename. For example running::
+
+    $ /home/administrator/backup/sqlbackup.sh afterbackup.
+
+Would create a backup named :file:`03.09.12_04.13pm.afterbackup.sql.gz`.
+
+The script backs up our databases to a folder where our backup system backs them up from.
+
 
 Ken Task has also made his scripts available for use at http://moodle.tcea.org/mysqldbscripts.tar . Simply untar the scripts to an executable location (like :file:`/usr/local/bin/` ) and edit them with the proper username and password. They are meant to be run as root.

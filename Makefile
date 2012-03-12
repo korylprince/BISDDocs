@@ -46,6 +46,7 @@ html:
 	@echo
 	cp -R fw/files $(BUILDDIR)/html/fw/
 	cp -R cluster/server_files $(BUILDDIR)/html/cluster/server_files/
+	cp -R cluster/db_files $(BUILDDIR)/html/cluster/db_files/
 	cp -R cluster/db_manage_files $(BUILDDIR)/html/cluster/db_manage_files/
 	cp -R cluster/data_files $(BUILDDIR)/html/cluster/data_files/
 	cp -R cluster/web_files $(BUILDDIR)/html/cluster/web_files/

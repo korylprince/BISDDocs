@@ -89,6 +89,8 @@ Next shut down nginx on each of your :doc:`Web <web>` servers::
 
     $ sudo service nginx stop
 
+Now might be a good time to back up your :doc:`Databases <db>`.
+
 Next, on **only** one of your :doc:`Web <web>` servers run::
 
     $ sudo /home/administrator/moodleupgrade/upgrade.sh
