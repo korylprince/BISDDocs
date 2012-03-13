@@ -54,6 +54,7 @@ html:
 	cp -R cluster/moodle_files $(BUILDDIR)/html/cluster/moodle_files/
 	cp  cluster/cluster.svg $(BUILDDIR)/html/cluster/cluster.svg
 	cp -R backup/files $(BUILDDIR)/html/backup/files/
+	cp -R monitor/cacti_files $(BUILDDIR)/html/monitor/cacti_files/
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 dirhtml:

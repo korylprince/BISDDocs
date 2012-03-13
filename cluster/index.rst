@@ -9,22 +9,23 @@ Cluster Components
 ^^^^^^^^^^^^^^^^^^
 
 .. toctree::
-	:maxdepth: 1
+    :maxdepth: 1
 
-	server.rst
-	db.rst
-	db_manage.rst
-	data.rst
-	web.rst
-	lb.rst
+    server.rst
+    db.rst
+    db_manage.rst
+    data.rst
+    web.rst
+    lb.rst
 
 Software Setup
 ^^^^^^^^^^^^^^
 
 .. toctree::
-	:maxdepth: 1
+    :maxdepth: 1
 
-	moodle.rst
+    moodle.rst
+    ../monitor/cacti.rst
 
 Choosing a Server
 ^^^^^^^^^^^^^^^^^
