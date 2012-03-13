@@ -48,6 +48,8 @@ Create /var/cache/eaccelerator as tmpfs in `/etc/fstab <web_files/fstab>`_ .
 References
 ==========
 
+`fixperm.sh <web_files/fixperm.sh>`_ is a useful little script to repair permissions (edit it for your situation.)
+
 https://help.ubuntu.com/community/eAccelerator
 
 `Browse configuration files <web_files/>`_
