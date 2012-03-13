@@ -36,11 +36,10 @@ Specifics
     * :doc:`nginx </cluster/web>`:
         * runs on port 80, :doc:`Load balanced </cluster/lb>` by :doc:`ubuntu-lb1.bullardisd.net <ubuntu-lb1>`
         * accesses php-fpm on local port 9000 for .php extension
-        * /cacti:
-            * monitoring software (used for switches)
-            * uses monitor_cacti database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
-            * uses arpwatch and cacti-spine packages
-            * updated with plugin architecture
+        * :doc:`/cacti <../monitor/cacti>`:
+            * :doc:`monitoring <../monitor/index>` software (used for switches)
+            * uses :doc:`monitor_cacti <../monitor/cacti>` database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
+            * uses :doc:`spine <../monitor/cacti>`
         * /handbook:
             * online district handbook signing
             * users monitor_handbook database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`

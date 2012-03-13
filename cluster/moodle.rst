@@ -36,7 +36,7 @@ Install Software
 
 (MOODLE_XX_STABLE should be replaced with current version, i.e. as of this writing it is MOODLE_22_STABLE)
 
-`fixperm.sh <web_files/fixperm.sh>`_ is a useful script to fix the permissions of the moodle web and data files.
+`fixperm.sh <moodle_files/fixperm.sh>`_ is a useful script to fix the permissions of the moodle web and data files.
 
 Configure Software
 ==================
@@ -76,7 +76,7 @@ To set up automatic updates each moodle site must have its own separate :file:`c
 
 Edit each :file:`config.php` to remove the multi-site parts (Except for :file:`config.php.multi` - this is a copy of your current :file:`config.php` that needs to left alone.) See `config.php.site <moodle_files/moodleupgrade/config.php.site>`_ .
 
-Make sure the `fixperm.sh <web_files/fixperm.sh>`_ is at :file:`/var/fixperm.sh` . And now copy `upgrade.sh <moodle_files/moodleupgrade/upgrade.sh>`_ to :file:`/home/administrator/moodleupgrade/upgrade.sh` and edit it for all your sites (simply copy, paste and edit.)
+Make sure the `fixperm.sh <moodle_files/fixperm.sh>`_ is at :file:`/var/fixperm.sh` . And now copy `upgrade.sh <moodle_files/moodleupgrade/upgrade.sh>`_ to :file:`/home/administrator/moodleupgrade/upgrade.sh` and edit it for all your sites (simply copy, paste and edit.)
 
 Do this on each moodle :doc:`Web <web>` server. 
 

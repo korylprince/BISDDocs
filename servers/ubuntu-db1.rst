@@ -40,9 +40,9 @@ Specifics
                 * apps database
 
             * :doc:`ubuntu-monitor.bullardisd.net <ubuntu-monitor>`
-                * cacti
-                * handbook
-                * piwik
+                * :doc:`monitor_cacti <../monitor/cacti>`
+                * monitor_handbook
+                * monitor_piwik
 
     * :doc:`nfs </cluster/data>`:
         * accessible from:
