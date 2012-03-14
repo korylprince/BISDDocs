@@ -6,11 +6,11 @@ This is the documentation of all of Bullard ISD's Open Source setups. This is a 
 .. toctree::
     :maxdepth: 1
 
-    fw/fw.rst
     backup/backup.rst
-    cluster/index.rst
-    servers/index.rst
     monitor/index.rst
+    fw/fw.rst
+    servers/index.rst
+    cluster/index.rst
 
 About
 =====

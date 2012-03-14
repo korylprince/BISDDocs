@@ -5,11 +5,27 @@
 Moodle
 ======
 
-Installs Moodle in a clustered environment. With this setup multiple moodle installations use the same Web Codebase at :file:`/var/moodlewww`. This allows for quicker upgrades, but does not allow moodles to be upgraded separately. Thus it is recommended that testing moodles are installed with a separate codebase.
+Installs Moodle in a :doc:`clustered <index>` environment. With this setup multiple moodle installations use the same PHP Codebase at :file:`/var/moodlewww`. This allows for quicker upgrades, but does not allow moodles to be upgraded separately. Thus it is recommended that testing moodles are installed with a separate codebase.
 
-In this setup the moodle databases lie on an external server - ubuntu-db1.example.com.
+In this setup the moodle :doc:`databases <db>` lie on an external server - ubuntu-db1.example.com.
 
-The moodledata directory is an NFS share from ubuntu-db1.example.com and is mounted on :file:`/var/moodledata`.
+The moodledata directory is an :doc:`NFS share <data>` from ubuntu-db1.example.com and is mounted on :file:`/var/moodledata`.
+
+We run moodle on two :doc:`web <web>` servers - :doc:`../servers/ubuntu-web1` and :doc:`../servers/ubuntu-web2`, and one :doc:`data <data>`/:doc:`database <db>` server - :doc:`../servers/ubuntu-db1`.
+
+**Requires**
+
+:doc:`db`
+
+:doc:`data`
+
+:doc:`web`
+
+**Recommends**
+
+:doc:`db_manage`
+
+:doc:`lb`
 
 Install Software
 ================
@@ -36,7 +52,7 @@ Install Software
 
 (MOODLE_XX_STABLE should be replaced with current version, i.e. as of this writing it is MOODLE_22_STABLE)
 
-`fixperm.sh <moodle_files/fixperm.sh>`_ is a useful script to fix the permissions of the moodle web and data files.
+`fixperm.sh <moodle_files/fixperm.sh>`_ is a useful script to fix the permissions of the moodle php and data files.
 
 Configure Software
 ==================
@@ -83,7 +99,7 @@ Do this on each moodle :doc:`Web <web>` server.
 Updating
 ========
 
-After using the above method on each web server, you are ready to update. First, to be nice to your users, you should probably change your moodle site to point to a maintenance page.
+After using the above method on each :doc:`web <web>` server, you are ready to update. First, to be nice to your users, you should probably change your moodle site to point to a maintenance page.
 
 Next shut down nginx on each of your :doc:`Web <web>` servers::
 
@@ -99,7 +115,7 @@ This will upgrade all the moodles non-interactively and start that web server. N
 
 *Note that this process is easily scriptable, but it is recommended that you run it manually each time to ensure nothing goes wrong. The process takes only a couple minutes max.*
 
-If you would simply like to upgrade the moodle web files, and run the upgrade for each moodle in a web browser, run::
+If you would simply like to upgrade the moodle PHP files, and run the upgrade for each moodle in a web browser, run::
 
     $ cd /var/moodlewww
     $ sudo git checkout .

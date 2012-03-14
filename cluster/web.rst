@@ -11,8 +11,6 @@ Install Software
 ================
 ::
 
-$ sudo apt-get install python-software-properties
-$ sudo add-apt-repository ppa:nginx/stable
 $ sudo apt-get update
 $ sudo apt-get dist-upgrade
 $ sudo apt-get install nginx php5-fpm php5-gd php5-mysql php5-intl php5-curl php5-xmlrpc php5-ldap git htop php5-dev build-essential

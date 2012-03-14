@@ -25,7 +25,14 @@ Software Setup
     :maxdepth: 1
 
     moodle.rst
-    ../monitor/cacti.rst
+
+
+Monitoring Software Setup
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* :doc:`../monitor/cacti`
+
+* :doc:`../monitor/ipcheck`
 
 Choosing a Server
 ^^^^^^^^^^^^^^^^^

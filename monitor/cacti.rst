@@ -7,11 +7,23 @@ Cacti
 
 Cacti is a monitoring software that we use to monitor bandwidth on our switches as well as keep track of mac addresses.
 
-We use cacti on our :doc:`ubuntu-monitor <../servers/ubuntu-monitor>` server which is part of our :doc:`web cluster <../cluster/index>`.
+We use cacti on our :doc:`../servers/ubuntu-monitor` server which is part of our :doc:`web cluster <../cluster/index>`.
 
 Ubuntu provides packages for cacti and spine, but they require apache, and don't include the Plugin Architecture. Luckily, it's not very hard to set up on our own.
 
 We use the `Realtime <http://docs.cacti.net/plugin:realtime>`_, `Weathermap <http://docs.cacti.net/userplugin:weathermap>`_, and `Mactrack <http://docs.cacti.net/plugin:mactrack>`_ plugins.
+
+**Requires**
+
+:doc:`../cluster/db`
+
+:doc:`../cluster/web`
+
+**Recommends**
+
+:doc:`../cluster/db_manage`
+
+:doc:`../cluster/lb`
 
 Install Cacti
 =============

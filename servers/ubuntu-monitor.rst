@@ -43,7 +43,7 @@ Specifics
         * /handbook:
             * online district handbook signing
             * users monitor_handbook database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
-        * /ipcheck:
+        * :doc:`/ipcheck <../monitor/ipcheck>`:
             * ipchecker
         * /linux:
             * unfinished old linux howto
