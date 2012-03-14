@@ -42,14 +42,14 @@ Specifics
             * :doc:`ubuntu-monitor.bullardisd.net <ubuntu-monitor>`
                 * :doc:`monitor_cacti <../monitor/cacti>`
                 * monitor_handbook
-                * monitor_piwik
+                * :doc:`monitor_piwik <../monitor/piwik>`
 
     * :doc:`nfs </cluster/data>`:
         * accessible from:
             * :doc:`ubuntu-web1.bullardisd.net <ubuntu-web1>`
             * :doc:`ubuntu-web2.bullardisd.net <ubuntu-web2>`
         * exports:
-            * /var/moodledata
+            * :doc:`/var/moodledata <../cluster/moodle>`
 
     * :doc:`phpmyadmin </cluster/db_manage>`:
         * accessible only from 127.0.0.1:80
@@ -57,24 +57,18 @@ Specifics
             *  ``$ ssh -L 8080:localhost:80 administrator@ubuntu-db1``
             * Browse to http://localhost:8080/phpmyadmin/
 
-        * Users:
 
 Backup
 ======
 
-   * system5 backup:
-        * runs snapshot service
+* system5 backup:
+    * runs snapshot service
 
-    * cacti database backup:
-        * /home/administrator/cactibackup.sh
-            * run weekly
-            * backed up to ubuntu-kory2 weekly
-              
-    * inventory database backup:
-        * /home/administrator/invbackup.sh
-            * run daily
-            * backed up to ubuntu-kory2 weekly
+* cacti database incremental backup:
+    * /home/administrator/cactibackup.sh
+    * run weekly
+    * backed up to ubuntu-kory2 weekly
 
-    * :doc:`moodle </cluster/moodle>` database backup:
-        * /home/administrator/moodlebackup.sh
-            * run daily
+* backups of import databases
+    * run daily
+    * :ref:`/home/administrator/backup/sqlbackup.sh <mysql_backup>`

@@ -34,6 +34,8 @@ Monitoring Software Setup
 
 * :doc:`../monitor/ipcheck`
 
+* :doc:`../monitor/piwik`
+
 Choosing a Server
 ^^^^^^^^^^^^^^^^^
 

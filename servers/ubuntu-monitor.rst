@@ -35,23 +35,23 @@ Specifics
         * slave for :doc:`ns.bullardisd.net <ns>`
     * :doc:`nginx </cluster/web>`:
         * runs on port 80, :doc:`Load balanced </cluster/lb>` by :doc:`ubuntu-lb1.bullardisd.net <ubuntu-lb1>`
-        * accesses php-fpm on local port 9000 for .php extension
+        * accesses :doc:`php-fpm <../cluster/web>` on local port 9000 for .php extension
         * :doc:`/cacti <../monitor/cacti>`:
             * :doc:`monitoring <../monitor/index>` software (used for switches)
-            * uses :doc:`monitor_cacti <../monitor/cacti>` database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
+            * uses :doc:`monitor_cacti <../monitor/cacti>` :doc:`database <../cluster/db>` on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
             * uses :doc:`spine <../monitor/cacti>`
         * /handbook:
             * online district handbook signing
-            * users monitor_handbook database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
+            * users monitor_handbook :doc:`database <../cluster/db>` on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
         * :doc:`/ipcheck <../monitor/ipcheck>`:
             * ipchecker
         * /linux:
             * unfinished old linux howto
         * /logs:
             * access system logs from a web interface
-        * /stats:
-            * piwik - web analytics
-            * uses monitor_piwik database on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
+        * :doc:`/stats <../monitor/piwik>`:
+            * :doc:`piwik - web analytics <../monitor/piwik>`
+            * uses :doc:`monitor_piwik <../monitor/piwik>` :doc:`database <../cluster/db>` on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
 
 Backup
 ======

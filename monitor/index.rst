@@ -8,4 +8,5 @@ Here lies the software we use to monitor our network.
 
     cacti.rst
     ipcheck.rst
+    piwik.rst
 

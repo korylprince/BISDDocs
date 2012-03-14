@@ -46,6 +46,8 @@ MySQL comes with several utilities to maintain databases. Here are some examples
 
 It is not recommended that you run these commands while there are many users using the server as it is processor and disk intensive.
 
+.. _mysql_backup:
+
 Backup
 ======
 

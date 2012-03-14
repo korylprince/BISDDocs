@@ -13,7 +13,7 @@ Install Software
 
 $ sudo apt-get update
 $ sudo apt-get dist-upgrade
-$ sudo apt-get install nginx php5-fpm php5-gd php5-mysql php5-intl php5-curl php5-xmlrpc php5-ldap git htop php5-dev build-essential
+$ sudo apt-get install nginx php5-fpm php5-gd php5-mysql php5-intl php5-curl php5-xmlrpc php5-ldap git htop php5-dev build-essential unzip
 $ sudo mkdir /var/www
 $ sudo chmod 755 /var/www
 $ sudo chown www-data:www-data /var/www

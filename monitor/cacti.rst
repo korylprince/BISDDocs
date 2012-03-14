@@ -62,6 +62,8 @@ You could use something like::
     mysql> quit;
     $ mysql -u<user> -p<pass> -h<db-host> cacti<cacti.sql
 
+*Note: if your <db-host> is remote, you might need to add* :file:`--port 3306` *to the command.*
+
 Now you need to edit `/var/www/cacti/include/config.php <cacti_files/config.php>`_ and replace the database name, host, username, password, and url path to match your configuration.
 
 Finally, all that's left is to add a cron job for cacti. Run::
@@ -89,6 +91,8 @@ At this point you have cacti that is ready to be filled with information.
 
 One step you will want to take is to create a directory for the realtime plugin. :file:`/var/www/cacti/rra/realtime/` would be a good choice.
 
+It would also be good to block some cacti directories from prying eyes. See `/etc/nginx/sites-available/default <cacti_files/default>`_ for more information. 
+
 Also, don't forget to fix permissions on your web directory (use `fixperm.sh <../cluster/web_files/fixperm.sh>`_.)
 
 Install Spine
@@ -99,9 +103,10 @@ Now cacti is set up, but if you have a lot of switches, the php poller can get b
 To install run::
 
 $ cd /tmp
-$ wget http://www.cacti.net/downloads/spine/cacti-spine-0.8.7i.tar.gz$ tar xzf cacti-spine-0.8.7i.tar.gz
+$ wget http://www.cacti.net/downloads/spine/cacti-spine-0.8.7i.tar.gz
+$ tar xzf cacti-spine-0.8.7i.tar.gz
 $ cd cacti-spine-0.8.7i
-$ ./configure --prefix=/usr
+$ ./configure --prefix=/usr --sysconfdir=/etc
 $ make
 
 You may have issues with the configure command. (This seems to happen on Ubuntu Precise currently.) If that is the case then run::
@@ -115,6 +120,7 @@ Now after doing one of the above, run::
 
 $ sudo make install
 $ sudo cp spine.conf.dist /etc/spine.conf
+$ sudo rm /etc/spine.conf.dist
 $ sudo chmod 640 /etc/spine.conf
 $ sudo chown root:www-data /etc/spine.conf
 
