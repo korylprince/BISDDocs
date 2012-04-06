@@ -11,9 +11,9 @@ Install software
 ================
 ::
 
-	$ sudo apt-get update
-	$ sudo apt-get dist-upgrade
-	$ sudo apt-get install mysql-server
+	sudo apt-get update
+	sudo apt-get dist-upgrade
+	sudo apt-get install mysql-server
 
 Optionally install :doc:`phpmyadmin <db_manage>` management.
 
@@ -38,9 +38,9 @@ Maintenance
 MySQL comes with several utilities to maintain databases. Here are some examples::
  
     # Check tables and repair if needed
-    $ mysqlcheck -u<user> -p<password> --all-databases --auto-repair
+    mysqlcheck -u<user> -p<password> --all-databases --auto-repair
     # Optimize tables
-    $ mysqloptimize -u<user> -p<password> --all-databases
+    mysqloptimize -u<user> -p<password> --all-databases
 
 *Note that innodb database (such as those used by* :doc:`moodle <moodle>` *cannot be recovered easily. In the case that an innodb table becomes corrupt, consult the MySQL manual.*
 
@@ -53,7 +53,7 @@ Backup
 
 The simplest way to backup your databases is to use the :file:`mysqldump` command. The command::
 
-    $ mysqldump -u<user> -p<password> <database> >/path/to/backup
+    mysqldump -u<user> -p<password> <database> >/path/to/backup
 
 Will backup <database> to the path specificed.
 
@@ -70,11 +70,11 @@ We use a little script, `sqlbackup.sh <db_files/sqlbackup.sh>`_ , to run our SQL
 
 Just copy this script to :file:`/home/administrator/backup/`, edit the variables, and run it with::
 
-    $ /home/administrator/backup/sqlbackup.sh <note>
+    /home/administrator/backup/sqlbackup.sh <note>
 
 <note> is an optional word that will be included in the filename. For example running::
 
-    $ /home/administrator/backup/sqlbackup.sh afterbackup.
+    /home/administrator/backup/sqlbackup.sh afterbackup.
 
 Would create a backup named :file:`03.09.12_04.13pm.afterbackup.sql.gz`.
 

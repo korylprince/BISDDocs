@@ -32,23 +32,23 @@ Install Software
 
 **Moodle** ::
 
-	$ cd /var/
-	$ sudo git clone git://git.moodle.org/moodle.git moodlewww
-	$ cd /var/moodlewww/
-	$ sudo git checkout origin/MOODLE_XX_STABLE
-	$ sudo chown -R www-data:www-data /var/moodlewww
-	$ sudo chmod -R 755 /var/moodlewww
-	$ sudo mkdir /var/www
-	$ sudo ln -s /var/moodlewww /var/www/primary
-	$ sudo ln -s /var/moodlewww /var/www/elementary
-	$ sudo ln -s /var/moodlewww /var/www/intermediate
-	$ sudo ln -s /var/moodlewww /var/www/middle
-	$ sudo ln -s /var/moodlewww /var/www/high
-	$ sudo ln -s /var/moodlewww /var/www/district
-	$ sudo chown -R www-data:www-data /var/www
-	$ sudo chmod -R 755 /var/www
-	$ sudo chown -R www-data:www-data /var/moodledata
-	$ sudo chmod -R 755 /var/moodledata
+	cd /var/
+	sudo git clone git://git.moodle.org/moodle.git moodlewww
+	cd /var/moodlewww/
+	sudo git checkout origin/MOODLE_XX_STABLE
+	sudo chown -R www-data:www-data /var/moodlewww
+	sudo chmod -R 755 /var/moodlewww
+	sudo mkdir /var/www
+	sudo ln -s /var/moodlewww /var/www/primary
+	sudo ln -s /var/moodlewww /var/www/elementary
+	sudo ln -s /var/moodlewww /var/www/intermediate
+	sudo ln -s /var/moodlewww /var/www/middle
+	sudo ln -s /var/moodlewww /var/www/high
+	sudo ln -s /var/moodlewww /var/www/district
+	sudo chown -R www-data:www-data /var/www
+	sudo chmod -R 755 /var/www
+	sudo chown -R www-data:www-data /var/moodledata
+	sudo chmod -R 755 /var/moodledata
 
 (MOODLE_XX_STABLE should be replaced with current version, i.e. as of this writing it is MOODLE_22_STABLE)
 
@@ -78,17 +78,17 @@ Updating Setup
 
 To set up automatic updates each moodle site must have its own separate :file:`config.php` file. This is how we did it::
 
-    $ cd /home/administrator/
-    $ mkdir moodleupgrade
-    $ cd moodleupgrade
-    $ cp /var/moodlewww/config.php ./config.php.multi
-    $ cp config.php.multi config.php.test1
-    $ cp config.php.multi config.php.district
-    $ cp config.php.multi config.php.high
-    $ cp config.php.multi config.php.middle
-    $ cp config.php.multi config.php.intermediate
-    $ cp config.php.multi config.php.elementary
-    $ cp config.php.multi config.php.primary
+    cd /home/administrator/
+    mkdir moodleupgrade
+    cd moodleupgrade
+    cp /var/moodlewww/config.php ./config.php.multi
+    cp config.php.multi config.php.test1
+    cp config.php.multi config.php.district
+    cp config.php.multi config.php.high
+    cp config.php.multi config.php.middle
+    cp config.php.multi config.php.intermediate
+    cp config.php.multi config.php.elementary
+    cp config.php.multi config.php.primary
 
 Edit each :file:`config.php` to remove the multi-site parts (Except for :file:`config.php.multi` - this is a copy of your current :file:`config.php` that needs to left alone.) See `config.php.site <moodle_files/moodleupgrade/config.php.site>`_ .
 
@@ -103,13 +103,13 @@ After using the above method on each :doc:`web <web>` server, you are ready to u
 
 Next shut down nginx on each of your :doc:`Web <web>` servers::
 
-    $ sudo service nginx stop
+    sudo service nginx stop
 
 Now might be a good time to back up your :doc:`Databases <db>`.
 
 Next, on **only** one of your :doc:`Web <web>` servers run::
 
-    $ sudo /home/administrator/moodleupgrade/upgrade.sh
+    sudo /home/administrator/moodleupgrade/upgrade.sh
 
 This will upgrade all the moodles non-interactively and start that web server. Next run the same command on all the other moodle :doc:`Web <web>` servers, one at a time. This will upgrade the moodle files on that server and start nginx. It won't "reupgrade" the database as the moodle upgrade script checks for that. After you have run the above command on all your :doc:`Web <web>` servers, the upgrade is finished.
 
@@ -117,10 +117,10 @@ This will upgrade all the moodles non-interactively and start that web server. N
 
 If you would simply like to upgrade the moodle PHP files, and run the upgrade for each moodle in a web browser, run::
 
-    $ cd /var/moodlewww
-    $ sudo git checkout .
-    $ sudo git pull origin MOODLE_XX_STABLE
-    $ sudo /var/fixperm.sh
+    cd /var/moodlewww
+    sudo git checkout .
+    sudo git pull origin MOODLE_XX_STABLE
+    sudo /var/fixperm.sh
 
 Then browse to your moodle sites with a browser to complete the upgrade for each moodle site.
 

@@ -1,0 +1,17 @@
+#web2py
+server {
+        listen 80;
+        server_name web2py.example.com;
+
+        location / {
+                uwsgi_pass unix:///run/uwsgi/web2py/socket;
+                include uwsgi_params;
+                # Let web2py know that we are load balancing ssl
+                uwsgi_param    UWSGI_SCHEME    $scheme;
+        }
+
+        # Serve static files directly
+        location /init/static {
+        alias /var/web2py/applications/init/static;
+        }
+}

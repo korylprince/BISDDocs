@@ -26,11 +26,11 @@ Install Piwik
 
 ::
 
-$ cd /var/www/
-$ sudo wget http://piwik.org/latest.zip
-$ sudo unzip latest.zip
-$ sudo mv piwik stats
-$ sudo rm latest.zip How\ to* 
+    cd /var/www/
+    sudo wget http://piwik.org/latest.zip
+    sudo unzip latest.zip
+    sudo mv piwik stats
+    sudo rm latest.zip How\ to* 
 
 Now run `fixperm.sh <../cluster/web_files/fixperm.sh>`_ to fix permissions.
 

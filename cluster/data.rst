@@ -11,10 +11,10 @@ Install Software
 ================
 ::
 
-$ sudo mkdir <datadir>
-$ sudo chown -R www-data:www-data <datadir>
-$ sudo chmod -R 755 <datadir>
-$ sudo apt-get install nfs-kernel-server
+    sudo mkdir <datadir>
+    sudo chown -R www-data:www-data <datadir>
+    sudo chmod -R 755 <datadir>
+    sudo apt-get install nfs-kernel-server
 
 Note: Replace <datadir> with data directory. For instance with moodle use :file:`/var/moodledata`
 
@@ -30,8 +30,8 @@ On :doc:`Web Servers <web>`:
 
 ::
 
-$ sudo apt-get install nfs-common
-$ sudo mkdir <datadir>
+    sudo apt-get install nfs-common
+    sudo mkdir <datadir>
 
 Edit `/etc/fstab <data_files/client/fstab>`_ to add the NFS share permanently to the filesystem.
 

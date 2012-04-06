@@ -22,7 +22,7 @@ Installing Server
 
 Install ifenslave::
 
-	$ sudo apt-get install ifenslave
+	sudo apt-get install ifenslave
 
 Update `/etc/network/interfaces <server_files/network/interfaces>`_ to use interface bonding for failover.
 

@@ -16,6 +16,7 @@ Cluster Components
     db_manage.rst
     data.rst
     web.rst
+    web2py.rst
     lb.rst
 
 Software Setup
@@ -25,6 +26,7 @@ Software Setup
     :maxdepth: 1
 
     moodle.rst
+    inventory.rst
 
 
 Monitoring Software Setup

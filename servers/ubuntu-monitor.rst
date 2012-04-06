@@ -52,6 +52,11 @@ Specifics
         * :doc:`/stats <../monitor/piwik>`:
             * :doc:`piwik - web analytics <../monitor/piwik>`
             * uses :doc:`monitor_piwik <../monitor/piwik>` :doc:`database <../cluster/db>` on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
+        * docs.bullardisd.net:
+            * This documentation website
+        * :doc:`inventory.bullardisd.net <../cluster/inventory>`
+            * in-house inventory system running on :doc:`web2py <../cluster/web2py>`
+            * uses :doc:`inventory <../cluster/inventory>` :doc:`database <../cluster/db>` on :doc:`ubuntu-db1.bullardisd.net <ubuntu-db1>`
 
 Backup
 ======

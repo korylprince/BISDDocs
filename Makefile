@@ -52,6 +52,8 @@ html:
 	cp -R cluster/web_files $(BUILDDIR)/html/cluster/web_files/
 	cp -R cluster/lb_files $(BUILDDIR)/html/cluster/lb_files/
 	cp -R cluster/moodle_files $(BUILDDIR)/html/cluster/moodle_files/
+	cp -R cluster/web2py_files $(BUILDDIR)/html/cluster/web2py_files/
+	cp -R cluster/inventory_files $(BUILDDIR)/html/cluster/inventory_files/
 	cp  cluster/cluster.svg $(BUILDDIR)/html/cluster/cluster.svg
 	cp -R backup/files $(BUILDDIR)/html/backup/files/
 	cp -R monitor/cacti_files $(BUILDDIR)/html/monitor/cacti_files/

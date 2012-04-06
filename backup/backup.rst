@@ -14,8 +14,8 @@ Install Software
 ================
 ::
 
-    $ sudo apt-get install build-essential libnet-sftp-foreign-perl
-    $ sudo cpan
+    sudo apt-get install build-essential libnet-sftp-foreign-perl
+    sudo cpan
 
 Enter yes for all prompts until you arrive at the cpan[1]>  prompt::
 
@@ -36,9 +36,9 @@ The host needs nothing more than an ssh server installed.
 To automate the backup process, it is recommended that Public Key authentication be enable for the user. On Ubuntu this is as simple as running a few commands on the client::
 
     # To generate private key if one does not exist
-    $ ssh-keygen
+    ssh-keygen
     # Take defaults
-    $ ssh-copy-id user@host
+    ssh-copy-id user@host
 
 You should then be able to log into the host without a password.
 
@@ -49,13 +49,13 @@ First, `~/.brackup.conf <files/brackup.conf>` must be configured correctly. At a
 
 Next create the directory structure::
 
-    $ mkdir ~/backup
-    $ cd ~/backup
-    $ mkdir bisdadmin2 #used for smb 
-    $ mkdir bisdadmin2a #used for smb
-    $ mkdir files
-    $ mkdir backup_files
-    $ mkdir logs
+    mkdir ~/backup
+    cd ~/backup
+    mkdir bisdadmin2 #used for smb 
+    mkdir bisdadmin2a #used for smb
+    mkdir files
+    mkdir backup_files
+    mkdir logs
 
 *Note that bisdadmin2 and bisdadmin2a are directories used for mounting smb shares. They may not be needed in your situation (and definitely not with those names.)*
 
@@ -64,14 +64,14 @@ Set up Script Dependencies
 
 Install needed packages::
 
-    $ sudo apt-get install mutt ssmpt
+    sudo apt-get install mutt ssmpt
 
 **Email Reports:**
 
 :file:`ssmpt` is a simple program that allows you to send email from the terminal (send only), and mutt is a terminal email client that we interface with. First we need to install the programs::
 
 
-    $ sudo apt-get install mutt ssmpt
+    sudo apt-get install mutt ssmpt
 
 Now just edit `/etc/ssmpt/ssmpt.conf <files/ssmpt.conf>` and add your mail server and host name.
 
@@ -90,7 +90,7 @@ With this is place normal users can mount the SMB share (which we need for the s
 
 To automate the backup, we use cron. Edit crontab and insert the line: ::
 
-    $ crontab -e
+    crontab -e
 
     0	19	*	*	*	~/backup.sh
 
@@ -107,15 +107,15 @@ To restore with brackup, you need a brackup file. The script saves them to :file
 
 First we list available backups using::
 
-    $ brackup-target <target_name> list_backups
+    brackup-target <target_name> list_backups
 
 Then, after choosing which backup we want, we run::
 
-    $ brackup-target <target_name> get_backup <backup_name>
+    brackup-target <target_name> get_backup <backup_name>
 
 This will put the brackup file in your current directory. Finally we restore with::
 
-    $ brackup-restore --from=<backupfile> --to=/directory/to/restore/to/ --all
+    brackup-restore --from=<backupfile> --to=/directory/to/restore/to/ --all
 
 *Note: you can replace --all with --just=<file or directory> to restore that file or directory only.*
 

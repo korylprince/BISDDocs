@@ -24,18 +24,18 @@ Install IPCheck
 
 ::
 
-$ cd /var/www/
-$ sudo git clone https://github.com/korylprince/IPCheck.git
-$ sudo mv IPCheck/ ipcheck
-$ cd ipcheck/auth/
-$ sudo cp options.php.def options.php
-$ sudo cp users.list.def users.list
+    cd /var/www/
+    sudo git clone https://github.com/korylprince/IPCheck.git
+    sudo mv IPCheck/ ipcheck
+    cd ipcheck/auth/
+    sudo cp options.php.def options.php
+    sudo cp users.list.def users.list
 
 At this point fix permissions (with `fixperm.sh <../cluster/web_files/fixperm.sh>`_).
 
 You now have a working installation you can go to. To change the default password run::
 
-$ php mkpasswd.php <password>
+    php mkpasswd.php <password>
 
 And edit :file:`users.list` with the new hash.
 
