@@ -2,7 +2,7 @@
 .. index:: Cluster, nginx
 
 ===================
-Cluster Web Service
+Cluster PHP Web Service
 ===================
 
 Installs a web server with PHP and eAccelerator.

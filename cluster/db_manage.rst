@@ -11,10 +11,7 @@ Install software
 ================
 ::
 
-	sudo apt-get install python-software-properties
-	sudo add-apt-repository ppa:nginx/stable
 	sudo apt-get update
-	sudo apt-get dist-upgrade
 	sudo apt-get install nginx php5-fpm php5-mysql php5-mcrypt
 
 **phpmyadmin** ::
