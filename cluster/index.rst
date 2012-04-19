@@ -25,8 +25,8 @@ Software Setup
 .. toctree::
     :maxdepth: 1
 
-    moodle.rst
     inventory.rst
+    moodle.rst
 
 
 Monitoring Software Setup

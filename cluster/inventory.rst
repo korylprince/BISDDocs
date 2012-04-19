@@ -1,9 +1,9 @@
 .. _cluster_inventory_howto:
 .. index:: web2py, python, inventory
 
-=========
-Inventory
-=========
+==============
+BISD Inventory
+==============
 
 Install in-house inventory system based on :doc:`web2py <web2py>`
 

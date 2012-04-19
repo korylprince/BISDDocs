@@ -119,6 +119,13 @@ This will put the brackup file in your current directory. Finally we restore wit
 
 *Note: you can replace --all with --just=<file or directory> to restore that file or directory only.*
 
+Adding SMS Notifcations
+=======================
+
+Included is a script - `notify.py <files/notify.py>`_ that can use a `twilio <http://twilio.com/>`_ account to send notifcations about the backup.
+
+Simply copy `notify.py <files/notify.py>`_ to the correct location and edit it for account details and phone numbers. Then uncomment the lines in `backup.sh <files/backup.sh>`_ to enable the notifications.
+
 References
 ==========
 

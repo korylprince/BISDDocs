@@ -1,9 +1,9 @@
 .. _cluster_web_howto:
 .. index:: Cluster, nginx
 
-===================
+=======================
 Cluster PHP Web Service
-===================
+=======================
 
 Installs a web server with PHP and eAccelerator.
 

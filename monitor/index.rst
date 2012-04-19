@@ -1,7 +1,7 @@
 Network Monitoring
 ==================
 
-Here lies the software we use to monitor our network.
+Here lies some of the software we use to monitor our network.
 
 .. toctree::
     :maxdepth: 1

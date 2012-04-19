@@ -31,5 +31,8 @@ EOF
 echo ""
 echo ""
 echo "Backup Ended `date '+%c'`"
+#Uncomment for text notifications
+#echo "Sending Texts"
+#python /home/administrator/backup/notify.py /home/administrator/backup/logs/$logtime.log
 echo "Sending Email Reports"
 cat ~/backup/logs/$logtime.log|mutt -s "Backup - $logtime"<email to send to>
