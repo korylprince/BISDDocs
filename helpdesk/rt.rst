@@ -100,6 +100,7 @@ You can add multiple accounts so different emails go to different queues. Just d
 Next we need to correct permissions. ::
 
     sudo touch /var/log/fetchmail.log
+    sudo chown fetchmail /var/log/fetchmail.log
     sudo chown fetchmail /etc/fetchmailrc
     sudo chmod 600 /etc/fetchmailrc
 
