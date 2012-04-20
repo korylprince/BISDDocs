@@ -1,0 +1,37 @@
+#For munin
+server {
+	listen 80;
+	server_name localhost;
+
+	# For local RT REST Access
+	location / {
+		fastcgi_pass    unix:/var/run/rt4-fcgi.sock;
+		include         /etc/nginx/fastcgi_params;
+		fastcgi_param   SCRIPT_NAME     "";
+		fastcgi_param   PATH_INFO       $uri;
+	} 
+} 
+
+#helpdesk
+server {
+	listen	80; # if you have behind a load balancer - If not use 443 and add ssl options
+	server_name	helpdesk.example.com;
+
+	# Bring images directly to user
+	location /NoAuth/images {
+		alias /usr/share/request-tracker4/html/NoAuth/images;
+	}
+
+	# Send to RT
+	location / {
+		fastcgi_pass	unix:/var/run/rt4-fcgi.sock;
+		include	/etc/nginx/fastcgi_params;
+		fastcgi_param	SCRIPT_NAME	"";
+		fastcgi_param	PATH_INFO	$uri;
+	}
+
+# don't allow people to access REST
+	location /REST/1.0/NoAuth {
+		deny all;
+	}
+}

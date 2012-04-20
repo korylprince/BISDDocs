@@ -58,6 +58,7 @@ html:
 	cp -R backup/files $(BUILDDIR)/html/backup/files/
 	cp -R monitor/cacti_files $(BUILDDIR)/html/monitor/cacti_files/
 	cp -R monitor/ipcheck_files $(BUILDDIR)/html/monitor/ipcheck_files/
+	cp -R helpdesk/files $(BUILDDIR)/html/helpdesk/files/
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
 dirhtml:

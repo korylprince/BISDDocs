@@ -38,6 +38,11 @@ Monitoring Software Setup
 
 * :doc:`../monitor/piwik`
 
+Other Software Setup
+^^^^^^^^^^^^^^^^^^^^
+
+* :doc:`../helpdesk/rt`
+
 Choosing a Server
 ^^^^^^^^^^^^^^^^^
 

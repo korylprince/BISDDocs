@@ -1,0 +1,24 @@
+# THE BASICS:
+
+Set($rtname, 'Example Helpdesk'); #Don't change this once you've got everything set up!
+Set($Organization, 'EHelpdesk'); #Don't change this once you've got everything set up!
+
+Set($CorrespondAddress , 'helpdesk@example.com');
+Set($CommentAddress , 'helpdesk@example.com');
+
+# THE WEBSERVER:
+
+Set($WebPath , "");
+Set($WebBaseURL , "https://helpdesk.example.com");
+Set($WebDomain, 'helpdesk.example.com');
+
+# LOGGING:
+Set($LogToSyslog, undef);
+Set($LogToFile, info);
+Set($LogDir, q{/var/log/request-tracker4});
+Set($LogToFileNamed, "rt.log"); 
+
+# DISABLE GPG
+Set(%GnuPG,
+    Enable => 0
+);

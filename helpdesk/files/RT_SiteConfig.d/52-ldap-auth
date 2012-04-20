@@ -1,0 +1,40 @@
+#Settings for Active Directory
+Set( @Plugins, qw(RT::Authen::ExternalAuth) );
+Set($ExternalAuthPriority,           [ 'MY_LDAP' ] );
+Set($ExternalInfoPriority,           [ 'MY_LDAP' ] );
+Set($ExternalServiceUsesSSLorTLS,    0);
+Set($AutoCreateNonExternalUsers,     1);
+Set($ExternalSettings,      {
+		'MY_LDAP'               =>  {
+		'type'                  =>  'ldap',
+		'auth'                  =>  '1',
+		'info'                  =>  '1',
+		'server'                =>  '<ad.example.com',
+		'user'                  =>  'CN=Authenticated User,OU=Full Path,OU=To User,DC=example,DC=com',
+		'pass'                  =>  '<pass>',
+		'base'                  =>  'OU=Base,DC=example,DC=com',
+		'filter'                =>  '(objectClass=*)',
+		'd_filter'              =>  '(userAccountControl:1.2.840.113556.1.4.803:=2)',
+		'tls'                   =>  0,
+		'net_ldap_args'         => [version =>3],
+# Uncomment group if you want to allow access to only one group
+#		'group'                 =>  'CN=Domain RT Users,OU=Domain Groups,DC=example,DC=com',
+		'group_attr'            =>  'member',
+# You can add more to the list to pull from AD if you wish
+		'attr_match_list'           => ['Name','EmailAddress'],
+# The mapping of RT attributes on to LDAP attributes
+		'attr_map'                  =>  {   'Name' => 'sAMAccountName',
+			'EmailAddress' => 'mail',
+			'Organization' => 'physicalDeliveryOfficeName',
+			'RealName' => 'cn',
+			'ExternalAuthId' => 'sAMAccountName',
+			'Gecos' => 'sAMAccountName',
+			'WorkPhone' => 'telephoneNumber',
+			'Address1' => 'streetAddress',
+			'City' => 'l',
+			'State' => 'st',
+			'Zip' => 'postalCode',
+			'Country' => 'co'
+		}
+		}
+});

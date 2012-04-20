@@ -19,6 +19,8 @@ Install in-house inventory system based on :doc:`web2py <web2py>`
 
 :doc:`lb`
 
+Runs on :doc:`../servers/ubuntu-monitor` with a :doc:`database <../cluster/db>` on :doc:`../servers/ubuntu-db1` and :doc:`load balanced <../cluster/lb>` by :doc:`../servers/ubuntu-lb1`.
+
 Install Software
 ================
 

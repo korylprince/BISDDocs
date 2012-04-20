@@ -1,0 +1,11 @@
+# Defaults for request-tracker4 initscript
+# sourced by /etc/init.d/rt4-fcgi
+
+#
+# This is a POSIX shell fragment
+#
+
+enabled=1
+
+# number of RT workers:
+workers=2

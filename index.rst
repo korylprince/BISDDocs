@@ -10,6 +10,7 @@ This is the documentation of all of Bullard ISD's Open Source setups. This is a 
     backup/backup.rst
     monitor/index.rst
     fw/fw.rst
+    helpdesk/rt.rst
     servers/index.rst
     cluster/index.rst
 
