@@ -7,7 +7,7 @@ Request Tracker Helpdesk
 
 Installs `Request Tracker 4.0.5 (RT4) <http://bestpractical.com/rt/>`_ helpdesk system with some extras.
 
-*Note: This install assumes you have Ubuntu 10.10, and may not work on other versions.*
+*Note: This install assumes you have Ubuntu 11.10, and may not work on other versions.*
 
 **Requires**
 
