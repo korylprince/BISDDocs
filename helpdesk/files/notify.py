@@ -27,3 +27,4 @@ for num in number.split(','):
         print "Phone number is not valid."
         sys.exit(0);
     message = client.sms.messages.create(to=num, from_="<twilio number>",body=text)
+print text

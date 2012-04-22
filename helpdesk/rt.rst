@@ -213,7 +213,6 @@ Next we create the Scrip. Go to Tools->configuration->Global->Scrips->Create and
 Finally, fill in Custom action preparation code with the following code::
 
     #Taken in part from http://kermit.yaxs.net/post/2061563927/request-tracker-quick-n-dirty-sending-sms-on-change
-
     # don't send if user makes self owner
     if ($self->TicketObj->Owner == $self->TransactionObj->Creator) {
       $RT::Logger->info ( 'Not sending notification SMS - Creator made change');
@@ -246,11 +245,11 @@ Finally, fill in Custom action preparation code with the following code::
     my $url = $RT::WebURL . "m/ticket/show?id=" . $Ticket->Id;
 
     # and backticks to exec the sms script 
-    `python /opt/notify.py \"$OwnerMobileNumber\" \"Ticket assigned:\n $Requestor: $Subject\" \"$url\"`;
+    my $output = `python /opt/notify.py \"$OwnerMobileNumber\" \"Ticket assigned:\n $Requestor: $Subject\" \"$url\"`;
 
     # add system comment
     $self->TicketObj->Comment(
-    Content=>"Outgoing SMS Sent:\nTicket assigned:\n $Requestor: $Subject"
+    Content=>"Outgoing SMS Sent:\n".$output
     );
     return 1;
 
