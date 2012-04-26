@@ -1,4 +1,4 @@
-Welcome to Bullard ISD Documentation's documentation!
+Welcome to Bullard ISD's Documentation!
 =====================================================
 
 This is the documentation of all of Bullard ISD's Open Source setups. This is a work in progress.
