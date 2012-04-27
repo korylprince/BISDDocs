@@ -1,7 +1,9 @@
 """
 Sends SMS message. Should be run like:
 
-python notify.py '<number to send to>' 'message to send' 'url'
+python notify.py '<number to send to>' 'url' << message to send
+
+Where << signifies input is expected from stdin
 
 requires twilio and TinyUrl python modules
 
@@ -15,16 +17,18 @@ account = "xxxx"
 token = "xxxx"
 client = TwilioRestClient(account, token)
 
-url = tinyurl.create_one(sys.argv[3])
+# get url and create text
+url = tinyurl.create_one(sys.argv[2])
 number = sys.argv[1]
-text = sys.argv[2]+" \n"+url
-if len(text) > 160:
-    print "Message too long"
-    sys.exit(0);
+text = sys.stdin.read()
+# Cut off text before 60 characters
+text = text[0:160-len(url)-4] +"...\n"+ url 
 
+# send to multiple phones if present
 for num in number.split(','):
     if not num.isdigit():
         print "Phone number is not valid."
         sys.exit(0);
     message = client.sms.messages.create(to=num, from_="<twilio number>",body=text)
+# output text sent
 print text
