@@ -220,16 +220,16 @@ Finally, fill in Custom action preparation code with the following code::
       return 1;
     }
 
-    # load the ticket, owner and user object 
+    # load the ticket and info
     my $Ticket = $self->TicketObj;
-    my $OwnerID = $self->TicketObj->Owner;
-    my $user = RT::User->new($RT::SystemUser);
-
-    # set the requestor email and ticket subject - will be used in the SMS
+    my $QueueName = $Ticket->QueueObj->Name;
     my $Requestor = $Ticket->RequestorAddresses;
     my $Subject = $Ticket->Subject;
+    my $url = $RT::WebURL . "m/ticket/show?id=" . $Ticket->Id;
 
-    # load owners details and grab the mobile number from RT
+    # Check which queue ticket is in and get queue owner
+    my $user = RT::User->new($RT::SystemUser);
+    my $OwnerID = $self->TicketObj->Owner;
     $user->Load($OwnerID);
     my $OwnerMobileNumber = $user->MobilePhone;
 
@@ -239,16 +239,12 @@ Finally, fill in Custom action preparation code with the following code::
       return 1;
     }
 
-    # some logging so we can check it's working
+    # Log the sms
     $RT::Logger->info ( 'Sending SMS to '.$OwnerMobileNumber.', ticket subject is '.$Ticket->Subject.' requested by '.$Ticket->RequestorAddresses );
-
-    # ticket id
-    my $url = $RT::WebURL . "m/ticket/show?id=" . $Ticket->Id;
 
     my $Content = $Ticket->Transactions->First->Content();
 
     my $command = "python /opt/notify.py $OwnerMobileNumber \"$url\"  <<EOF\nTicket assigned:\n$Requestor - $Subject:\n$Content\nEOF";
-    $RT::Logger->info ($command);
 
     # and backticks to exec the sms script 
     my $output = `$command`;
