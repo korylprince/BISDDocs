@@ -8,7 +8,6 @@ Request Tracker Helpdesk
 Installs `Request Tracker 4.0.5 (RT4) <http://bestpractical.com/rt/>`_ helpdesk system with some extras.
 
 *Note: This install assumes you have Ubuntu 11.10, and may not work on other versions.*
-
 **Requires**
 
 :doc:`../cluster/db`
@@ -210,54 +209,13 @@ Next we create the Scrip. Go to Tools->configuration->Global->Scrips->Create and
     Template:   Global Template: Blank
     Stage:  Transaction Create
 
-Finally, fill in Custom action preparation code with the following code::
-
-    #Taken in part from http://kermit.yaxs.net/post/2061563927/request-tracker-quick-n-dirty-sending-sms-on-change
-
-    # don't send if user makes self owner
-    if ($self->TicketObj->Owner == $self->TransactionObj->Creator) {
-      $RT::Logger->info ( 'Not sending notification SMS - Creator made change');
-      return 1;
-    }
-
-    # load the ticket and info
-    my $Ticket = $self->TicketObj;
-    my $QueueName = $Ticket->QueueObj->Name;
-    my $Requestor = $Ticket->RequestorAddresses;
-    my $Subject = $Ticket->Subject;
-    my $url = $RT::WebURL . "m/ticket/show?id=" . $Ticket->Id;
-
-    # Check which queue ticket is in and get queue owner
-    my $user = RT::User->new($RT::SystemUser);
-    my $OwnerID = $self->TicketObj->Owner;
-    $user->Load($OwnerID);
-    my $OwnerMobileNumber = $user->MobilePhone;
-
-    # check if we have a mobile number for the new owner, leave a log message and quit if we dont
-    if ( !$OwnerMobileNumber ) {
-      $RT::Logger->info ( 'Not sending notification SMS - no mobile number found for owner');
-      return 1;
-    }
-
-    # Log the sms
-    $RT::Logger->info ( 'Sending SMS to '.$OwnerMobileNumber.', ticket subject is '.$Ticket->Subject.' requested by '.$Ticket->RequestorAddresses );
-
-    my $Content = $Ticket->Transactions->First->Content();
-
-    my $command = "python /opt/notify.py $OwnerMobileNumber \"$url\"  <<EOF\nTicket assigned:\n$Requestor - $Subject:\n$Content\nEOF";
-
-    # and backticks to exec the sms script 
-    my $output = `$command`;
-
-    # add system comment
-    $self->TicketObj->Comment(
-    Content=>"Outgoing SMS Sent:\n".$output
-    );
-    return 1;
+Finally, fill in Custom action preparation code with the code found in `ownerchange.pl <files/ownerchange.pl>`_.
 
 Go ahead and save the Scrip.
 
 Now add a Mobile number for a user and try changing the owner of a ticket to that user. If nothing happens, check the RT log for troubleshooting.
+
+We also have a script for notifying a certain user when a new ticket is added to a queue. You create a new Scrip as before and use the code found in `newticket.pl <files/newticket.pl>`_.
 
 If you have any issues with any of the setup, contact us below and we will help in any way we can!
 
