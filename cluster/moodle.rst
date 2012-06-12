@@ -37,7 +37,6 @@ Install Software
     cd /var/moodlewww/
     sudo git checkout origin/MOODLE_XX_STABLE
     sudo chown -R www-data:www-data /var/moodlewww
-    sudo chmod -R 755 /var/moodlewww
     sudo mkdir /var/www
     sudo ln -s /var/moodlewww /var/www/primary
     sudo ln -s /var/moodlewww /var/www/elementary
@@ -46,10 +45,8 @@ Install Software
     sudo ln -s /var/moodlewww /var/www/high
     sudo ln -s /var/moodlewww /var/www/district
     sudo chown -R www-data:www-data /var/www
-    sudo chmod -R 755 /var/www
     sudo mkdir /var/moodledata
     sudo chown -R www-data:www-data /var/moodledata
-    sudo chmod -R 755 /var/moodledata
 
 (MOODLE_XX_STABLE should be replaced with current version, i.e. as of this writing it is MOODLE_22_STABLE)
 

@@ -13,7 +13,6 @@ Install Software
 
     sudo mkdir <datadir>
     sudo chown -R www-data:www-data <datadir>
-    sudo chmod -R 755 <datadir>
     sudo apt-get install nfs-kernel-server
 
 Note: Replace <datadir> with data directory. For instance with moodle use :file:`/var/moodledata`

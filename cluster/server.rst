@@ -9,9 +9,6 @@ Installs the Server OS.
 
 Installing Server
 =================
-**Configure RAID with uEFI Configuration Wizard:**
-
-	* Configure the Addons and use the web option
 
 **Install Ubuntu Server 11.10 x64:**
 
@@ -25,6 +22,10 @@ Install ifenslave::
     sudo apt-get install ifenslave
 
 Update `/etc/network/interfaces <server_files/network/interfaces>`_ to use interface bonding for failover.
+
+**Installing Extras:** ::
+
+    sudo apt-get install git unzip htop tmux vim
 
 References
 ==========
